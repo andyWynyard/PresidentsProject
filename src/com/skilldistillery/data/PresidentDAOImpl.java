@@ -18,7 +18,7 @@ public class PresidentDAOImpl implements PresidentDAO {
 	private ServletContext servletContext;
 	private List<String> president;
 
-	private void loadPresidentsFromFile() {
+	public void loadPresidentsFromFile() {
 		// Retrieve an input stream from the servlet context
 		// rather than directly from the file system
 		InputStream is = servletContext.getResourceAsStream(filename);

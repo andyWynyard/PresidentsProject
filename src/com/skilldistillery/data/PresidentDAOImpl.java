@@ -6,7 +6,7 @@ package com.skilldistillery.data;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,7 +18,9 @@ public class PresidentDAOImpl implements PresidentDAO {
 	private ServletContext servletContext;
 	private List<String> president;
 
-	private void loadPresidentsFromFile() {
+	@Override
+	public Map<Integer, President> loadPresidentsFromFile() {
+		Map<Integer, President> presMap = new HashMap<>();
 		// Retrieve an input stream from the servlet context
 		// rather than directly from the file system
 		InputStream is = servletContext.getResourceAsStream(filename);
@@ -28,19 +30,23 @@ public class PresidentDAOImpl implements PresidentDAO {
 				String[] tokens = line.split(", ");
 				int presidentNumber = Integer.parseInt(tokens[0]);
 				String firstName = tokens[1];
-				String middlename = tokens[2];
+				String middleName = tokens[2];
 				String lastName = tokens[3];
 				int termBegin = Integer.parseInt(tokens[4].split("-")[0]);
 				int termEnd = Integer.parseInt(tokens[4].split("-")[1]);
 				String party = tokens[5];
 				String interestingFact = tokens[6];
 				
-		
+				President newPres = new President(presidentNumber, firstName, middleName, lastName, termBegin, termEnd, party, interestingFact);
+				
+				presMap.put(newPres.getPresidentNumber(), newPres);
+				
 
 			}
 		} catch (Exception e) {
 			System.err.println(e);
 		}
+		return presMap;
 	}
 
 	/*

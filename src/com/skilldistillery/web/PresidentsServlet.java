@@ -37,6 +37,7 @@ public class PresidentsServlet extends HttpServlet {
 				if (presNum > 45) {
 					presNum = 1;
 					req.setAttribute("pres",  presMap.get(presNum));
+					req.getRequestDispatcher("/Presidents.jsp").forward(req, resp);
 				}
 				req.setAttribute("pres", presMap.get(presNum));
 				req.getRequestDispatcher("/Presidents.jsp").forward(req, resp);
@@ -48,6 +49,7 @@ public class PresidentsServlet extends HttpServlet {
 				if (presNum < 1) {
 					presNum = 45;
 					req.setAttribute("pres", presMap.get(presNum));
+					req.getRequestDispatcher("/Presidents.jsp").forward(req, resp);
 				}
 				req.setAttribute("pres", presMap.get(presNum));
 				req.getRequestDispatcher("/Presidents.jsp").forward(req, resp);

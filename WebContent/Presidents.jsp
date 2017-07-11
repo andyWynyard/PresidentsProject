@@ -18,7 +18,12 @@ Andy Wynard<br>
 <br>
 <img src="img/${pres.presidentNumber }.jpg" style="width:304px;height:228px;" />
 <br>
-<a href="Presidents">let's View your President</a><br/>
-
-</body>
+<a href="Presidents.do?president1=${pres.presidentNumber }&submit=next">Next</a><br/>
+<a href="Presidents.do?president1=${pres.presidentNumber }&submit=prev">Previous</a><br/>
+<form action="Presidents.do" method="POST">
+<input type="text" name="param" value="test"/>
+<input type="submit" value="Next"/>
+</form>
+<a href="Presidents.do?param=${pres.presidentNumber }&submit=prev">Previous</a><br/>
+ </body>
 </html>

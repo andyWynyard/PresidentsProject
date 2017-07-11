@@ -25,14 +25,18 @@ public class PresidentsServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String presNumString = req.getParameter("president1");
+		String submit = req.getParameter("submit");
 		if(presNumString == null){
 			req.setAttribute("pres", presMap.get(1));
 			req.getRequestDispatcher("/Presidents.jsp").forward(req, resp);
 		}
 		else{
+			if(submit != null && submit.equals("next")){
+				
 		int presNum = Integer.parseInt(presNumString);
-		req.setAttribute("president", presMap.get(presNum));
-		req.getRequestDispatcher("/select.jsp").forward(req, resp);
+		req.setAttribute("pres", presMap.get(presNum+1));
+		req.getRequestDispatcher("/Presidents.jsp").forward(req, resp);
+			}
 		}
 		
 	}

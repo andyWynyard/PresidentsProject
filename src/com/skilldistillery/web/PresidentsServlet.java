@@ -26,7 +26,6 @@ public class PresidentsServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String presNumString = req.getParameter("president1");
 		if(presNumString == null){
-			System.out.println(presMap.size());
 			req.setAttribute("pres", presMap.get(1));
 			req.getRequestDispatcher("/Presidents.jsp").forward(req, resp);
 		}

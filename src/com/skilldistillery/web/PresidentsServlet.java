@@ -18,16 +18,23 @@ public class PresidentsServlet extends HttpServlet {
 	Map<Integer, President> presMap;
 	
 	@Override public void init() throws ServletException {
-		PresidentDAO dao = new PresidentDAOImpl();
+		PresidentDAO dao = new PresidentDAOImpl(this.getServletContext());
 		presMap = dao.loadPresidentsFromFile();
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		int presNum = Integer.parseInt(req.getParameter("president1"));
-		
+		String presNumString = req.getParameter("president1");
+		if(presNumString == null){
+			System.out.println(presMap.size());
+			req.setAttribute("pres", presMap.get(1));
+			req.getRequestDispatcher("/Presidents.jsp").forward(req, resp);
+		}
+		else{
+		int presNum = Integer.parseInt(presNumString);
 		req.setAttribute("president", presMap.get(presNum));
 		req.getRequestDispatcher("/select.jsp").forward(req, resp);
+		}
 		
 	}
 

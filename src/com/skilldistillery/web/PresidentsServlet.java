@@ -12,22 +12,21 @@ import com.skilldistillery.data.President;
 import com.skilldistillery.data.PresidentDAO;
 import com.skilldistillery.data.PresidentDAOImpl;
 
+import com.skilldistillery.data.President;
+
 public class PresidentsServlet extends HttpServlet {
 	Map<Integer, President> presMap;
 	
 	@Override public void init() throws ServletException {
-		PresidentDAOImpl dao = new PresidentDAOImpl();
+		PresidentDAO dao = new PresidentDAOImpl();
 		presMap = dao.loadPresidentsFromFile();
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String presNum = req.getParameter("president1");
+		int presNum = Integer.parseInt(req.getParameter("president1"));
 		
-		
-		
-		
-		req.setAttribute("president", dao.getPresidentByID(ID)
+		req.setAttribute("president", presMap.get(presNum));
 		req.getRequestDispatcher("/select.jsp").forward(req, resp);
 		
 	}

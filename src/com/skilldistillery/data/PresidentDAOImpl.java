@@ -42,7 +42,7 @@ public class PresidentDAOImpl implements PresidentDAO {
 				String party = tokens[5];
 				String interestingFact = tokens[6];
 				
-				President newPres = new President(presidentNumber, firstName, middleName, lastName, termBegin, termEnd, party, "He is interesting");
+				President newPres = new President(presidentNumber, firstName, middleName, lastName, termBegin, termEnd, party, interestingFact);
 				
 				presMap.put(newPres.getPresidentNumber(), newPres);
 				
@@ -144,5 +144,6 @@ public class PresidentDAOImpl implements PresidentDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 
 }

@@ -16,8 +16,9 @@ import com.skilldistillery.data.President;
 
 public class PresidentsServlet extends HttpServlet {
 	Map<Integer, President> presMap;
-	
-	@Override public void init() throws ServletException {
+
+	@Override
+	public void init() throws ServletException {
 		PresidentDAO dao = new PresidentDAOImpl(this.getServletContext());
 		presMap = dao.loadPresidentsFromFile();
 	}
@@ -26,25 +27,37 @@ public class PresidentsServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String presNumString = req.getParameter("president1");
 		String submit = req.getParameter("submit");
-		if(presNumString == null){
+		if (presNumString == null) {
 			req.setAttribute("pres", presMap.get(1));
 			req.getRequestDispatcher("/Presidents.jsp").forward(req, resp);
-		}
-		else{
-			if(submit != null && submit.equals("next")){
+		} else {
+			if (submit != null && submit.equals("next")) {
+				int presNum = Integer.parseInt(presNumString);
+				presNum += 1;
+				if (presNum > 45) {
+					presNum = 1;
+					req.setAttribute("pres",  presMap.get(presNum));
+				}
+				req.setAttribute("pres", presMap.get(presNum));
+				req.getRequestDispatcher("/Presidents.jsp").forward(req, resp);
 				
-		int presNum = Integer.parseInt(presNumString);
-		req.setAttribute("pres", presMap.get(presNum+1));
-		req.getRequestDispatcher("/Presidents.jsp").forward(req, resp);
+
+			} else if (submit != null && submit.equals("prev")) {
+				int presNum = Integer.parseInt(presNumString);
+				presNum -= 1;
+				if (presNum < 1) {
+					presNum = 45;
+					req.setAttribute("pres", presMap.get(presNum));
+				}
+				req.setAttribute("pres", presMap.get(presNum));
+				req.getRequestDispatcher("/Presidents.jsp").forward(req, resp);
 			}
 		}
-		
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		this.doGet(req, resp);
 	}
-	
 
 }

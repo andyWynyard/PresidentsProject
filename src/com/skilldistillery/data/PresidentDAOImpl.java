@@ -14,10 +14,14 @@ import javax.servlet.ServletContext;
 
 public class PresidentDAOImpl implements PresidentDAO {
 
-	private static final String filename = "WEB-INF/presidents.txt";
+	private static final String filename = "WEB-INF/presidents.csv";
 	private ServletContext servletContext;
 	private List<String> president;
 
+	public PresidentDAOImpl(ServletContext context) {
+		servletContext = context;
+	}
+	
 	@Override
 	public Map<Integer, President> loadPresidentsFromFile() {
 		Map<Integer, President> presMap = new HashMap<>();
@@ -27,6 +31,7 @@ public class PresidentDAOImpl implements PresidentDAO {
 		try (BufferedReader buf = new BufferedReader(new InputStreamReader(is))) {
 			String line;
 			while ((line = buf.readLine()) != null) {
+				System.out.println(line);
 				String[] tokens = line.split(", ");
 				int presidentNumber = Integer.parseInt(tokens[0]);
 				String firstName = tokens[1];
@@ -35,9 +40,9 @@ public class PresidentDAOImpl implements PresidentDAO {
 				int termBegin = Integer.parseInt(tokens[4].split("-")[0]);
 				int termEnd = Integer.parseInt(tokens[4].split("-")[1]);
 				String party = tokens[5];
-				String interestingFact = tokens[6];
+//				String interestingFact = tokens[6];
 				
-				President newPres = new President(presidentNumber, firstName, middleName, lastName, termBegin, termEnd, party, interestingFact);
+				President newPres = new President(presidentNumber, firstName, middleName, lastName, termBegin, termEnd, party, "He is interesting");
 				
 				presMap.put(newPres.getPresidentNumber(), newPres);
 				
@@ -46,6 +51,7 @@ public class PresidentDAOImpl implements PresidentDAO {
 		} catch (Exception e) {
 			System.err.println(e);
 		}
+		System.out.println(presMap.size());
 		return presMap;
 	}
 

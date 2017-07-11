@@ -27,12 +27,13 @@ public class PresidentsServlet extends HttpServlet {
 		String presNumString = req.getParameter("president1");
 		String submit = req.getParameter("submit");
 		if(presNumString == null){
+			req.setAttribute("initialload", true);
 			req.setAttribute("pres", presMap.get(1));
 			req.getRequestDispatcher("/Presidents.jsp").forward(req, resp);
 		}
 		else{
 			if(submit != null && submit.equals("next")){
-				
+				System.out.println("test");
 		int presNum = Integer.parseInt(presNumString);
 		req.setAttribute("pres", presMap.get(presNum+1));
 		req.getRequestDispatcher("/Presidents.jsp").forward(req, resp);

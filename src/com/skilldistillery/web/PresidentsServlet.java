@@ -28,6 +28,7 @@ public class PresidentsServlet extends HttpServlet {
 		String presNumString = req.getParameter("president1");
 		String submit = req.getParameter("submit");
 		if (presNumString == null) {
+			req.setAttribute("initialload",  true);
 			req.setAttribute("pres", presMap.get(1));
 			req.getRequestDispatcher("/Presidents.jsp").forward(req, resp);
 		} else {

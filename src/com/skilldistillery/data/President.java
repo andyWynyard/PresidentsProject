@@ -10,6 +10,15 @@ public class President {
 	private String party;
 	private String interestingFact;
 	
+	
+	
+	@Override
+	public String toString() {
+		return "President Number: " + presidentNumber + ", First name: " + firstName + ", Middle name: "
+				+ MiddleName + ", Last name: " + LastName + "<br>, Term begin: " + termBegin + ", Term end: " + termEnd
+				+ ", Party: " + party + "<br>, interestingFact=" + interestingFact + ".";
+	}
+
 	public int getPresidentNumber() {
 		return presidentNumber;
 	}

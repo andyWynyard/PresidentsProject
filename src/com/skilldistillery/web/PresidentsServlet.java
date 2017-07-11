@@ -12,6 +12,8 @@ import com.skilldistillery.data.President;
 import com.skilldistillery.data.PresidentDAO;
 import com.skilldistillery.data.PresidentDAOImpl;
 
+import com.skilldistillery.data.President;
+
 public class PresidentsServlet extends HttpServlet {
 	Map<Integer, President> presMap;
 	

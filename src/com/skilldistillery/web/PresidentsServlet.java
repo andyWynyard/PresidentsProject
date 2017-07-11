@@ -27,19 +27,7 @@ public class PresidentsServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String presNumString = req.getParameter("president1");
 		String submit = req.getParameter("submit");
-<<<<<<< HEAD
-		if(presNumString == null){
-			req.setAttribute("initialload", true);
-			req.setAttribute("pres", presMap.get(1));
-			req.getRequestDispatcher("/Presidents.jsp").forward(req, resp);
-		}
-		else{
-			if(submit != null && submit.equals("next")){
-				System.out.println("test");
-		int presNum = Integer.parseInt(presNumString);
-		req.setAttribute("pres", presMap.get(presNum+1));
-		req.getRequestDispatcher("/Presidents.jsp").forward(req, resp);
-=======
+
 		if (presNumString == null) {
 			req.setAttribute("initialload",  true);
 			req.setAttribute("pres", presMap.get(1));
@@ -67,7 +55,6 @@ public class PresidentsServlet extends HttpServlet {
 				}
 				req.setAttribute("pres", presMap.get(presNum));
 				req.getRequestDispatcher("/Presidents.jsp").forward(req, resp);
->>>>>>> 3267d2b49ea11f2ce71a8596c18c58196b20f6a5
 			}
 		}
 	}

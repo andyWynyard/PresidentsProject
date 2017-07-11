@@ -3,17 +3,20 @@
  */
 package com.skilldistillery.data;
 
+import java.util.Map;
+
 /**
  * @author andyWynyard
  *
  */
 public interface PresidentDAO {
-	 int presidentNumber;
-	 String firstName;
-	 String middleName;
-	 String lastName;
-	 int termBegin;
-	 int termEnd;
-	 String party;
+	 public int getpresidentNumber(int presidentNumber);
+	 public String getFirstName(String firstName);
+	 public String getMiddlename(String middleName);
+	 public String getLastName(String lastName);
+	 public int getTermBegin(int termBegin);
+	 public int getTermEnd(int termEnd);
+	 public String getParty(String party);
+	 public String getInterestingFact(String fact);
 
 }

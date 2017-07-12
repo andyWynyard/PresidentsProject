@@ -23,7 +23,7 @@ public class PresidentDAOImpl implements PresidentDAO {
 	}
 	// This is a comment and a computer ignores it.
 
-	@Override
+	
 	public Map<Integer, President> sortByParty(String party, Map<Integer, President> presList) {
 		Map<Integer, President> presByParty = new HashMap<>();
 		
@@ -35,7 +35,7 @@ public class PresidentDAOImpl implements PresidentDAO {
 		return presByParty;
 	}
 	
-	@Override
+	
 	public Map<Integer, President> loadPresidentsFromFile() {
 		Map<Integer, President> presMap = new HashMap<>();
 		// Retrieve an input stream from the servlet context

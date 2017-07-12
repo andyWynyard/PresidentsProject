@@ -15,7 +15,7 @@ import com.skilldistillery.data.PresidentDAOImpl;
 
 public class PresidentsServlet extends HttpServlet {
 	Map<Integer, President> presMap;
-	PresidentDAO dao;
+	PresidentDAOImpl dao;
 	Set<Integer> termNums;
 
 	@Override

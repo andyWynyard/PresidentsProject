@@ -12,13 +12,8 @@
 <style type="text/css">
 <%@includefile="bootstrap.min.css"%>
 </style>
-<<<<<<< HEAD
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="WEB-INF/bootstrap.min.js"></script>
-=======
-
 <script src="bootstrap.min.js"></script>
->>>>>>> e49da8bd03b7b7335697a263fc1fd38394a72697
 </head>
 <body style="background-color: #bbb;">
 

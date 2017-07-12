@@ -10,9 +10,10 @@
 <title>Presidents</title>
 <!-- Bootstrap -->
 <style type="text/css">
-<%@includefile="WEB-INF/bootstrap.min.css"%>
+<%@includefile="bootstrap.min.css"%>
 </style>
-<script src="WEB-INF/bootstrap.min.js"></script>
+
+<script src="bootstrap.min.js"></script>
 </head>
 <body style="background-color: #bbb;">
 
@@ -26,8 +27,6 @@
 
 	<div id="my-slider" class="carousel slide">
 	
-	
-
 		<div class="row">
 			<div class="col-xs-3">
 				<h3 align="right">Little known fact: </h3><h5 align="right">${pres.interestingFact}</h5>

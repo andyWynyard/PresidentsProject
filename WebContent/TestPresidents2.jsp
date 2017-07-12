@@ -18,14 +18,6 @@
 <body style="background-color: #bbb;">
 
 
-<form action="Presidents.do" method="GET">
-		<input type="number" min="1" max="45" name="PrezByTerm" placeholder="Enter Term Number of President" style="width: 300px"> <br>
-	<input type="submit" value="Submit">	
-
-</form>
-
-
-
 <div class="row">
 	<div class="container-flex">
 		<h2 align="center">Welcome to the Presidents information site</h2>
@@ -40,6 +32,14 @@
 		<div class="row">
 			<div class="col-xs-3">
 				<h3 align="right">Little known fact: </h3><h5 align="right">${pres.interestingFact}</h5>
+				<br>
+				<br>
+				<br>
+				<form action="Presidents.do" method="GET">
+		<input type="number" min="1" max="45" name="PrezByTerm" placeholder="Enter Term Number of President" style="min-width: 100%"> <br><br>
+	<input type="submit" value="Submit">	
+
+</form>
 			</div>
 			<div class="col-xs-4">
 			<div class="container-flex"></div>

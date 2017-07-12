@@ -33,6 +33,9 @@ public class PresidentsServlet extends HttpServlet {
 		if (presNumString == null) {
 			if (req.getParameter("PrezByTerm") != null) {
 				String prezByTermString = req.getParameter("PrezByTerm");
+				if (prezByTermString.equals("")) {
+					prezByTermString = "1";
+				}
 				int presByTerm = Integer.parseInt(prezByTermString);
 				req.setAttribute("pres", presMap.get(presByTerm));
 				req.getRequestDispatcher("/TestPresidents2.jsp").forward(req, resp);

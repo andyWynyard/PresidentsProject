@@ -19,5 +19,6 @@ public interface PresidentDAO {
 	 public String getParty(String party);
 	 public String getInterestingFact(String fact);
 	 public Map<Integer, President> loadPresidentsFromFile();
+	 public Map<Integer, President> sortByParty(String party, Map<Integer, President> presList);
 
 }

@@ -58,7 +58,6 @@ public class PresidentsServlet extends HttpServlet {
 			}
 		}
 	}
-	//WEEEE
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		this.doGet(req, resp);

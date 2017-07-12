@@ -1,16 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Presidents</title>
+<title>Presidents by Party</title>
 <!-- Bootstrap -->
 <style type="text/css">
-<%@includefile="bootstrap.css"%>
+<%@includefile="bootstrap.min.css"%>
 </style>
 
 
@@ -18,51 +17,35 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="bootstrap.min.js"></script>
 
-
 </head>
 <body style="background-color: #bbb;">
 
 
+<div class="container">
 <form action="Presidents.do" method="GET">
 		<input type="number" min="1" max="45" name="PrezByTerm" placeholder="Enter Term Number of President" style="width: 300px"> <br>
+		<input type="text"  name="PrezByParty" placeholder="Enter Party of President" style="width: 260px"> <br>
 	<input type="submit" value="Submit">	
 
 </form>
-<form action="Presidents.do" method="GET">
-		<input type="text" name="PrezByParty" placeholder="Enter the Party of the President" style="width: 300px"> <br>
-	<input type="submit" value="Submit">	
+</div>
 
-</form>
+TEST President by Party:
+<c:forEach items="${presMap}" var="entry" varStatus="status">
+     <c:out value="${entry.value}" />
+	</c:forEach>
 
-
-<div class="row">
-	<div class="container-flex">
-		<h2 align="center">Welcome to the Presidents information site</h2>
-		<h6 align="center">Please have a look around, and learn something new</h6>
-	</div>
-	</div>
 
 <div class="jumbotron">
 
 	<div id="my-slider" class="carousel slide">
 	
 		<div class="row">
-		<div class="container-flex">
 			<div class="col-xs-3">
-			<div class="well">
 				<h3 align="right">Little known fact: </h3><h5 align="right">${pres.interestingFact}</h5>
-				<br>
-				<br>
-				<br>
-				<form align="right" action="Presidents.do" method="GET">
-		<input type="number" min="1" max="45" name="PrezByTerm" placeholder="Enter Term Number of President" style="min-width: 100%"> <br><br>
-	<input type="submit" value="Submit">	
-
-	</form>
-			</div>
 			</div>
 			<div class="col-xs-4">
-			
+			<div class="container-flex"></div>
 			
 			
 
@@ -97,17 +80,11 @@
 				<p align="justify">${pres.synopsis}</p>
 				</div>
 			</div>
-			</div>
 		</div>
 		</div>
 		</div>
+
+
+
 </body>
 </html>
-
-
-
-
-
-
-
-

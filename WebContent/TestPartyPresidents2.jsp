@@ -32,6 +32,8 @@ TEST President by Party: <br>
      <c:out value="${ball.value.middleName}"/>
      <c:out value="${ball.value.lastName}"/>
      <br/>
+     <c:out value="${ball.value.interestingFact}"/>
+     <br/>
      <img src="img/${ball.value.presidentNumber}.jpg" style="width: 100%" /> 
      <br/>
      <br/>

@@ -46,6 +46,7 @@ public class PresidentsServlet extends HttpServlet {
 				Map<Integer, President> sortedPresMap = dao.sortByParty(prezByParty, presMap);
 				req.setAttribute("pres", sortedPresMap);
 				req.getRequestDispatcher("/TestPresidents2.jsp").forward(req, resp);
+				return;
 			}
 			req.setAttribute("initialload", true);
 			req.setAttribute("pres", presMap.get(1));

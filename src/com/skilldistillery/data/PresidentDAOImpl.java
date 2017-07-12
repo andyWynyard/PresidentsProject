@@ -27,7 +27,9 @@ public class PresidentDAOImpl implements PresidentDAO {
 	public Map<Integer, President> sortByParty(String party, Map<Integer, President> presList) {
 		Map<Integer, President> presByParty = new HashMap<>();
 		
-		for (int i = 0; i < presList.size(); i++) {
+		for (int i = 1; i <= presList.size(); i++) {
+			President testparty=presList.get(i);
+			//System.out.println("Current President: " + testparty.getFirstName()+testparty.getLastName()+testparty.getParty());
 			if (presList.get(i).getParty().equalsIgnoreCase(party)) {
 				presByParty.put(i, presList.get(i));
 			}

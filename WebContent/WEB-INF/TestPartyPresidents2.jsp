@@ -22,69 +22,15 @@
 
 
 <div class="container">
-<form action="Presidents.do" method="GET">
-		<input type="number" min="1" max="45" name="PrezByTerm" placeholder="Enter Term Number of President" style="width: 300px"> <br>
-		<input type="text"  name="PrezByParty" placeholder="Enter Party of President" style="width: 260px"> <br>
-	<input type="submit" value="Submit">	
 
-</form>
-</div>
 
-TEST President by Party:
+
+TEST President by Party: <br>
+${presMap}
 <c:forEach items="${presMap}" var="entry" varStatus="status">
      <c:out value="${entry.value}" />
 	</c:forEach>
 
-
-<div class="jumbotron">
-
-	<div id="my-slider" class="carousel slide">
-	
-		<div class="row">
-			<div class="col-xs-3">
-				<h3 align="right">Little known fact: </h3><h5 align="right">${pres.interestingFact}</h5>
-			</div>
-			<div class="col-xs-4">
-			<div class="container-flex"></div>
-			
-			
-
-				<!-- wrapper for slides -->
-
-				<div class="carousel-inner">
-					<div class="item active">
-						<img src="img/${pres.presidentNumber}.jpg" style="width: 100%" />
-						<div class="carousel-caption">
-							<h2>${pres.firstName} ${pres.middleName} ${pres.lastName}</h2>
-							
-							<h4>I was the #${pres.presidentNumber} gangsta</h4>
-							
-						</div>
-					</div>
-				</div>
-
-				<!-- controls or next/prev buttons -->
-				<a class="left carousel-control"
-					href="Presidents.do?president1=${pres.presidentNumber}&submit=prev"
-					role="button" data-slide="prev"> <span
-					class="glyphicon glyphicon-chevron-left"></span>
-				</a> <a class="right carousel-control"
-					href="Presidents.do?president1=${pres.presidentNumber}&submit=next"
-					role="button" data-slide="next"> <span
-					class="glyphicon glyphicon-chevron-right"></span>
-				</a>
-
-			</div>
-			<div class="col-xs-5">
-			<div class="well">
-				<p align="justify">${pres.synopsis}</p>
-				</div>
-			</div>
-		</div>
-		</div>
-		</div>
-
-
-
+</div>
 </body>
 </html>

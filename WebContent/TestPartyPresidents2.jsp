@@ -24,11 +24,17 @@
 <div class="container">
 
 
-
+<%-- ${presMap} --%>
 TEST President by Party: <br>
-${presMap}
-<c:forEach items="${presMap}" var="entry" varStatus="status">
-     <c:out value="${entry.value}" />
+<c:forEach items="${presMap}" var="ball" varStatus="status">
+     <c:out value="${ball.value.presidentNumber}"/>
+     <c:out value="${ball.value.firstName}"/>
+     <c:out value="${ball.value.middleName}"/>
+     <c:out value="${ball.value.lastName}"/>
+     <br/>
+     <img src="img/${ball.value.presidentNumber}.jpg" style="width: 100%" /> 
+     <br/>
+     <br/>
 	</c:forEach>
 
 </div>

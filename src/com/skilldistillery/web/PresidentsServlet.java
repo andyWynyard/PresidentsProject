@@ -16,16 +16,20 @@ import com.skilldistillery.data.President;
 
 public class PresidentsServlet extends HttpServlet {
 	Map<Integer, President> presMap;
+	PresidentDAO dao;
 
 	@Override
 	public void init() throws ServletException {
-		PresidentDAO dao = new PresidentDAOImpl(this.getServletContext());
+		dao = new PresidentDAOImpl(this.getServletContext());
 		presMap = dao.loadPresidentsFromFile();
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String presNumString = req.getParameter("president1");
+		String prezByTermString = req.getParameter("PrezByTerm");
+		String prezByParty = req.getParameter("PrezByParty");
+		
 		String submit = req.getParameter("submit");
 
 		if (presNumString == null) {
@@ -55,6 +59,13 @@ public class PresidentsServlet extends HttpServlet {
 				}
 				req.setAttribute("pres", presMap.get(presNum));
 				req.getRequestDispatcher("/TestPresidents2.jsp").forward(req, resp);
+			} else if (prezByTermString != null) {
+				int presByTerm = Integer.parseInt(prezByTermString);
+				req.setAttribute("presByTerm",  presMap.get(presByTerm));
+				req.getRequestDispatcher("/TestPresidents2.jsp").forward(req, resp);
+			} else if (prezByParty != null) {
+				Map<Integer, President> sortedPresMap = dao.sortByParty(prezByParty, presMap);
+				req.setAttribute("presByParty", sortedPresMap);
 			}
 		}
 	}

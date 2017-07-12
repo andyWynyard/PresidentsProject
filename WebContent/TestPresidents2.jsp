@@ -13,11 +13,11 @@
 <%@includefile="bootstrap.min.css"%>
 </style>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="WEB-INF/bootstrap.min.js"></script>
-=======
 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="bootstrap.min.js"></script>
+
 
 </head>
 <body style="background-color: #bbb;">

@@ -24,6 +24,18 @@ public class PresidentDAOImpl implements PresidentDAO {
 	// This is a comment and a computer ignores it.
 
 	@Override
+	public Map<Integer, President> sortByParty(String party, Map<Integer, President> presList) {
+		Map<Integer, President> presByParty = new HashMap<>();
+		
+		for (int i = 0; i < presList.size(); i++) {
+			if (presList.get(i).getParty().equalsIgnoreCase(party)) {
+				presByParty.put(i, presList.get(i));
+			}
+		}
+		return presByParty;
+	}
+	
+	@Override
 	public Map<Integer, President> loadPresidentsFromFile() {
 		Map<Integer, President> presMap = new HashMap<>();
 		// Retrieve an input stream from the servlet context

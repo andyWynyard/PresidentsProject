@@ -15,6 +15,51 @@
 <script src="WEB-INF/bootstrap.min.js"></script>
 </head>
 <body style="background-color: #bbb;">
+
+<div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" name="PrezByTerm">Presidents Dropdown
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+    <li><a href="#">George Washington</a></li>
+    <li><a href="#">John Adams</a></li>
+    <li><a href="#">Thomas Jefferson</a></li>
+    <li><a href="#">James Madison</a></li>
+    <li><a href="#">James Monroe</a></li>
+    <li><a href="#">John Quincy Adams</a></li>
+    <li><a href="#">Andrew Jackson</a></li>
+    <li><a href="#">Martin Van Buren</a></li>
+    <li><a href="#">William Henry Harrison</a></li>
+    <li><a href="#">John Tyler</a></li>
+    <li><a href="#">James Knox Polk</a></li>
+    <li><a href="#">Zachary Taylor</a></li>
+    <li><a href="#">Millard Fillmore</a></li>
+    <li><a href="#">Franklin Pierce</a></li>
+    <li><a href="#">James Buchanan</a></li>
+    <li><a href="#">Abraham Lincoln</a></li>
+    <li><a href="#">Andrew Johnson</a></li>
+    <li><a href="#">Ulysses Simpson Grant</a></li>
+    <li><a href="#">Rutherford Birchard Hayes</a></li>
+    <li><a href="#">James Abram Garfield</a></li>
+    <li><a href="#">Chester Alan Arthur</a></li>
+    <li><a href="#">Grover Cleveland</a></li>
+    <li><a href="#">Benjamin Harrison</a></li>
+    <li><a href="#">Grover Cleveland</a></li>
+    <li><a href="#">William McKinley</a></li>
+    <li><a href="#">Theodore Roosevelt</a></li>
+    </ul>
+  </div>
+
+
+
+<div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn" name="PrezByTerm">Presidents Dropdown</button>
+  <div id="myDropdown" class="dropdown-content">
+  
+  </div>
+</div>
+
+
+
 <div class="jumbotron">
 
 	<div id="my-slider" class="carousel slide" data-ride="carousel">
@@ -28,7 +73,7 @@
 
 				<div class="carousel-inner" role="listbox">
 					<div class="item active">
-						<img src="img/${pres.presidentNumber}.jpg" style="width: 604px;" />
+						<img src="img/${pres.presidentNumber}.jpg" style="width: 100%" />
 						<div class="carousel-caption">
 							<h2>${pres.firstName} ${pres.lastName}</h2>
 							
@@ -56,3 +101,11 @@
 	</div>
 </body>
 </html>
+
+
+
+
+
+
+
+

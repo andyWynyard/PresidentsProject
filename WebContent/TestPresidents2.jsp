@@ -35,7 +35,7 @@
 				<br>
 				<br>
 				<br>
-				<form action="Presidents.do" method="GET">
+				<form align="right" action="Presidents.do" method="GET">
 		<input type="number" min="1" max="45" name="PrezByTerm" placeholder="Enter Term Number of President" style="min-width: 100%"> <br><br>
 	<input type="submit" value="Submit">	
 

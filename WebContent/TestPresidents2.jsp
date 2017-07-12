@@ -28,7 +28,7 @@
 
 				<div class="carousel-inner" role="listbox">
 					<div class="item active">
-						<img src="img/${pres.presidentNumber}.jpg" style="width: 604px;" />
+						<img src="img/${pres.presidentNumber}.jpg" style="width: 100%" />
 						<div class="carousel-caption">
 							<h2>${pres.firstName} ${pres.lastName}</h2>
 							

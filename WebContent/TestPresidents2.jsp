@@ -30,7 +30,9 @@
 	<div id="my-slider" class="carousel slide">
 	
 		<div class="row">
+		<div class="container-flex">
 			<div class="col-xs-3">
+			<div class="well">
 				<h3 align="right">Little known fact: </h3><h5 align="right">${pres.interestingFact}</h5>
 				<br>
 				<br>
@@ -39,10 +41,11 @@
 		<input type="number" min="1" max="45" name="PrezByTerm" placeholder="Enter Term Number of President" style="min-width: 100%"> <br><br>
 	<input type="submit" value="Submit">	
 
-</form>
+	</form>
+			</div>
 			</div>
 			<div class="col-xs-4">
-			<div class="container-flex"></div>
+			
 			
 			
 
@@ -76,6 +79,7 @@
 			<div class="well">
 				<p align="justify">${pres.synopsis}</p>
 				</div>
+			</div>
 			</div>
 		</div>
 		</div>

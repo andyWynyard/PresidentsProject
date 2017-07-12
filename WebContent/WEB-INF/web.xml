@@ -3,7 +3,7 @@
   <display-name>Presidents</display-name>
   <welcome-file-list>
     <welcome-file>Presidents.do</welcome-file>
-    <welcome-file>ActualPresident.do</welcome-file>
+    <welcome-file>TestPresidents2.do</welcome-file>
 
   </welcome-file-list>
   <servlet>

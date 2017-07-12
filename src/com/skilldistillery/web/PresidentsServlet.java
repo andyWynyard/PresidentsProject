@@ -2,6 +2,7 @@ package com.skilldistillery.web;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,24 +13,36 @@ import com.skilldistillery.data.President;
 import com.skilldistillery.data.PresidentDAO;
 import com.skilldistillery.data.PresidentDAOImpl;
 
-import com.skilldistillery.data.President;
-
 public class PresidentsServlet extends HttpServlet {
 	Map<Integer, President> presMap;
+	PresidentDAO dao;
+	Set<Integer> termNums;
 
 	@Override
 	public void init() throws ServletException {
-		PresidentDAO dao = new PresidentDAOImpl(this.getServletContext());
+		dao = new PresidentDAOImpl(this.getServletContext());
 		presMap = dao.loadPresidentsFromFile();
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String presNumString = req.getParameter("president1");
+
 		String submit = req.getParameter("submit");
 
 		if (presNumString == null) {
-			req.setAttribute("initialload",  true);
+			if (req.getParameter("PrezByTerm") != null) {
+				String prezByTermString = req.getParameter("PrezByTerm");
+				int presByTerm = Integer.parseInt(prezByTermString);
+				req.setAttribute("pres", presMap.get(presByTerm));
+				req.getRequestDispatcher("/TestPresidents2.jsp").forward(req, resp);
+			}
+			else if (req.getParameter("PrezByParty") != null) {
+				String prezByParty = req.getParameter("PrezByParty");
+				Map<Integer, President> sortedPresMap = dao.sortByParty(prezByParty, presMap);
+				req.setAttribute("presByParty", sortedPresMap);
+			}
+			req.setAttribute("initialload", true);
 			req.setAttribute("pres", presMap.get(1));
 			req.getRequestDispatcher("/TestPresidents2.jsp").forward(req, resp);
 		} else {
@@ -38,12 +51,11 @@ public class PresidentsServlet extends HttpServlet {
 				presNum += 1;
 				if (presNum > 45) {
 					presNum = 1;
-					req.setAttribute("pres",  presMap.get(presNum));
+					req.setAttribute("pres", presMap.get(presNum));
 					req.getRequestDispatcher("/TestPresidents2.jsp").forward(req, resp);
 				}
 				req.setAttribute("pres", presMap.get(presNum));
 				req.getRequestDispatcher("/TestPresidents2.jsp").forward(req, resp);
-				
 
 			} else if (submit != null && submit.equals("prev")) {
 				int presNum = Integer.parseInt(presNumString);
@@ -55,6 +67,15 @@ public class PresidentsServlet extends HttpServlet {
 				}
 				req.setAttribute("pres", presMap.get(presNum));
 				req.getRequestDispatcher("/TestPresidents2.jsp").forward(req, resp);
+//			} else if (req.getParameter("PrezByTerm") != null) {
+//				String prezByTermString = req.getParameter("PrezByTerm");
+//				int presByTerm = Integer.parseInt(prezByTermString);
+//				req.setAttribute("pres", presMap.get(presByTerm));
+//				req.getRequestDispatcher("/TestPresidents2.jsp").forward(req, resp);
+//			} else if (req.getParameter("PrezByParty") != null) {
+//				String prezByParty = req.getParameter("PrezByParty");
+//				Map<Integer, President> sortedPresMap = dao.sortByParty(prezByParty, presMap);
+//				req.setAttribute("presByParty", sortedPresMap);
 			}
 		}
 	}

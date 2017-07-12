@@ -34,8 +34,8 @@ TEST President by Party: <br>
      <br/>
      <c:out value="${ball.value.interestingFact}"/>
      <br/>
-     <img src="img/${ball.value.presidentNumber}.jpg" style="width: 100%" /> 
-     <br/>
+     <img src="img/${ball.value.presidentNumber}.jpg" style="width=100px; height=200px;" /> 
+     <br/> 
      <br/>
 	</c:forEach>
 

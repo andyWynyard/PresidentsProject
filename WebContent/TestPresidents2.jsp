@@ -22,19 +22,6 @@
 </head>
 <body style="background-color: #bbb;">
 
-
-<form action="Presidents.do" method="GET">
-		<input type="number" min="1" max="45" name="PrezByTerm" placeholder="Enter Term Number of President" style="width: 300px"> <br>
-	<input type="submit" value="Submit">	
-
-</form>
-<form action="Presidents.do" method="GET">
-		<input type="text" name="PrezByParty" placeholder="Enter the Party of the President" style="width: 300px"> <br>
-	<input type="submit" value="Submit">	
-
-</form>
-
-
 <div class="row">
 	<div class="container-flex">
 		<h2 align="center">Welcome to the Presidents information site</h2>
@@ -55,10 +42,18 @@
 				<br>
 				<br>
 				<form align="right" action="Presidents.do" method="GET">
-		<input type="number" min="1" max="45" name="PrezByTerm" placeholder="Enter Term Number of President" style="min-width: 100%"> <br><br>
-	<input type="submit" value="Submit">	
+		        <input type="number" min="1" max="45" name="PrezByTerm" placeholder="Enter Term Number of President" style="min-width: 100%"> <br><br>
+	            <input type="submit" value="Submit">	
 
 	</form>
+		<br>
+				<br>
+				<br>
+	            <form align="right" action="Presidents.do" method="GET">
+	         	<input type="text" name="PrezByParty" placeholder="Enter the Party of the President" style="min-width: 100%"> <br><br>
+	            <input type="submit" value="Submit">	
+
+</form>
 			</div>
 			</div>
 			<div class="col-xs-4">

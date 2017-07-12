@@ -21,7 +21,8 @@ public class PresidentDAOImpl implements PresidentDAO {
 	public PresidentDAOImpl(ServletContext context) {
 		servletContext = context;
 	}
-	
+	// This is a comment and a computer ignores it.
+
 	@Override
 	public Map<Integer, President> loadPresidentsFromFile() {
 		Map<Integer, President> presMap = new HashMap<>();
@@ -31,7 +32,7 @@ public class PresidentDAOImpl implements PresidentDAO {
 		try (BufferedReader buf = new BufferedReader(new InputStreamReader(is))) {
 			String line;
 			while ((line = buf.readLine()) != null) {
-				System.out.println(line);
+				//System.out.println(line);
 				String[] tokens = line.split(", ");
 				int presidentNumber = Integer.parseInt(tokens[0]);
 				String firstName = tokens[1];
@@ -41,11 +42,12 @@ public class PresidentDAOImpl implements PresidentDAO {
 				int termEnd = Integer.parseInt(tokens[4].split("-")[1]);
 				String party = tokens[5];
 				String interestingFact = tokens[6];
-				
-				President newPres = new President(presidentNumber, firstName, middleName, lastName, termBegin, termEnd, party, interestingFact);
-				
+				String synopsis = tokens[7];
+
+				President newPres = new President(presidentNumber, firstName, middleName, lastName, termBegin, termEnd,
+						party, interestingFact, synopsis);
+
 				presMap.put(newPres.getPresidentNumber(), newPres);
-				
 
 			}
 		} catch (Exception e) {
@@ -144,6 +146,16 @@ public class PresidentDAOImpl implements PresidentDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.skilldistillery.data.PresidentDAO#getSynopsis(java.lang.String)
+	 */
+	@Override
+	public String getSynopsis(String synopsis) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

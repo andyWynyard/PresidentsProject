@@ -9,14 +9,33 @@ public class President {
 	private int termEnd;
 	private String party;
 	private String interestingFact;
+	private String synopsis;
 	
 	
 	
 	@Override
 	public String toString() {
-		return "President Number: " + presidentNumber + ", First name: " + firstName + ", Middle name: "
-				+ MiddleName + ", Last name: " + LastName + "<br>, Term begin: " + termBegin + ", Term end: " + termEnd
-				+ ", Party: " + party + "<br>, interestingFact=" + interestingFact + ".";
+		StringBuilder builder = new StringBuilder();
+		builder.append("President [presidentNumber=");
+		builder.append(presidentNumber);
+		builder.append(", firstName=");
+		builder.append(firstName);
+		builder.append(", MiddleName=");
+		builder.append(MiddleName);
+		builder.append(", LastName=");
+		builder.append(LastName);
+		builder.append(", termBegin=");
+		builder.append(termBegin);
+		builder.append(", termEnd=");
+		builder.append(termEnd);
+		builder.append(", party=");
+		builder.append(party);
+		builder.append(", interestingFact=");
+		builder.append(interestingFact);
+		builder.append(", synopsis=");
+		builder.append(synopsis);
+		builder.append("]");
+		return builder.toString();
 	}
 
 	public int getPresidentNumber() {
@@ -83,8 +102,16 @@ public class President {
 		this.interestingFact = interestingFact;
 	}
 
+	public String getSynopsis() {
+		return synopsis;
+	}
+
+	public void setSynopsis(String synopsis) {
+		this.synopsis = synopsis;
+	}
+
 	public President(int presidentNumber, String firstName, String middleName, String lastName, int termBegin,
-			int termEnd, String party, String interestingFact) {
+			int termEnd, String party, String interestingFact, String synopsis) {
 		super();
 		this.presidentNumber = presidentNumber;
 		this.firstName = firstName;
@@ -94,5 +121,6 @@ public class President {
 		this.termEnd = termEnd;
 		this.party = party;
 		this.interestingFact = interestingFact;
+		this.synopsis = synopsis;
 	}
 }

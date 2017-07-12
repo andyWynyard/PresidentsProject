@@ -15,25 +15,38 @@
 <script src="WEB-INF/bootstrap.min.js"></script>
 </head>
 <body style="background-color: #bbb;">
+
+<div class="row">
+	<div class="container-flex">
+		<h2 align="center">Welcome to the Presidents information site</h2>
+		<h6 align="center">Please have a look around, and learn something new</h6>
+	</div>
+	</div>
 <div class="jumbotron">
 
-	<div id="my-slider" class="carousel slide" data-ride="carousel">
+	<div id="my-slider" class="carousel slide">
+	
+	
 
 		<div class="row">
-			<div class="col-xs-4"></div>
+			<div class="col-xs-3">
+				<h3 align="right">Little known fact: </h3><h5 align="right">${pres.interestingFact}</h5>
+			</div>
 			<div class="col-xs-4">
-
+			<div class="container-flex"></div>
+			
+			
 
 				<!-- wrapper for slides -->
 
-				<div class="carousel-inner" role="listbox">
+				<div class="carousel-inner">
 					<div class="item active">
 						<img src="img/${pres.presidentNumber}.jpg" style="width: 100%" />
 						<div class="carousel-caption">
-							<h2>${pres.firstName} ${pres.lastName}</h2>
+							<h2>${pres.firstName} ${pres.middleName} ${pres.lastName}</h2>
 							
-							<h4>I was #${pres.presidentNumber} gangsta</h4>
-							<h5>About Me: </h5><p>${pres.interestingFact}</p>
+							<h4>I was the #${pres.presidentNumber} gangsta</h4>
+							
 						</div>
 					</div>
 				</div>
@@ -50,9 +63,13 @@
 				</a>
 
 			</div>
-			<div class="col-xs-4"></div>
+			<div class="col-xs-5">
+			<div class="well">
+				<p align="justify">${pres.synopsis}</p>
+				</div>
+			</div>
 		</div>
 		</div>
-	</div>
+		</div>
 </body>
 </html>

@@ -23,23 +23,18 @@
 <body style="background-color: #bbb;">
 
 
-<<<<<<< HEAD
 <form action="Presidents.do" method="GET">
 		<input type="number" min="1" max="45" name="PrezByTerm" placeholder="Enter Term Number of President" style="width: 300px"> <br>
 	<input type="submit" value="Submit">	
 
 </form>
-
 <form action="Presidents.do" method="GET">
-		<input type="text"  name="PrezByParty" placeholder="Enter Party of President" style="width: 260px"> <br>
+		<input type="text" name="PrezByParty" placeholder="Enter the Party of the President" style="width: 300px"> <br>
 	<input type="submit" value="Submit">	
 
 </form>
 
 
-
-=======
->>>>>>> f57570dc361a9c6f6e0bbe59a0649538075f0eee
 <div class="row">
 	<div class="container-flex">
 		<h2 align="center">Welcome to the Presidents information site</h2>

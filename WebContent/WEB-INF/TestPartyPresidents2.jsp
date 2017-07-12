@@ -21,17 +21,18 @@
 <body style="background-color: #bbb;">
 
 
-
+<div class="container">
 <form action="Presidents.do" method="GET">
 		<input type="number" min="1" max="45" name="PrezByTerm" placeholder="Enter Term Number of President" style="width: 300px"> <br>
 		<input type="text"  name="PrezByParty" placeholder="Enter Party of President" style="width: 260px"> <br>
 	<input type="submit" value="Submit">	
 
 </form>
+</div>
 
 TEST President by Party:
-	<c:forEach items="${listOfNums}" var="ball">
-		${ball.number}<br />
+<c:forEach items="${presMap}" var="entry" varStatus="status">
+     <c:out value="${entry.value}" />
 	</c:forEach>
 
 

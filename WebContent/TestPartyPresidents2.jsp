@@ -25,8 +25,10 @@
 
 
 <%-- ${presMap} --%>
-TEST President by Party: <br>
+President by Party: <br>
 <c:forEach items="${presMap}" var="ball" varStatus="status">
+
+
      <c:out value="${ball.value.presidentNumber}"/>
      <c:out value="${ball.value.firstName}"/>
      <c:out value="${ball.value.middleName}"/>
@@ -38,7 +40,7 @@ TEST President by Party: <br>
      <br/>
      <br/>
 	</c:forEach>
+	</div>
 
-</div>
 </body>
 </html>

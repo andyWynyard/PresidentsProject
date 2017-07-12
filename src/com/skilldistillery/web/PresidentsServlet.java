@@ -31,7 +31,7 @@ public class PresidentsServlet extends HttpServlet {
 		if (presNumString == null) {
 			req.setAttribute("initialload",  true);
 			req.setAttribute("pres", presMap.get(1));
-			req.getRequestDispatcher("/Presidents.jsp").forward(req, resp);
+			req.getRequestDispatcher("/TestPresidents2.jsp").forward(req, resp);
 		} else {
 			if (submit != null && submit.equals("next")) {
 				int presNum = Integer.parseInt(presNumString);
@@ -39,10 +39,10 @@ public class PresidentsServlet extends HttpServlet {
 				if (presNum > 45) {
 					presNum = 1;
 					req.setAttribute("pres",  presMap.get(presNum));
-					req.getRequestDispatcher("/Presidents.jsp").forward(req, resp);
+					req.getRequestDispatcher("/TestPresidents2.jsp").forward(req, resp);
 				}
 				req.setAttribute("pres", presMap.get(presNum));
-				req.getRequestDispatcher("/Presidents.jsp").forward(req, resp);
+				req.getRequestDispatcher("/TestPresidents2.jsp").forward(req, resp);
 				
 
 			} else if (submit != null && submit.equals("prev")) {
@@ -51,10 +51,10 @@ public class PresidentsServlet extends HttpServlet {
 				if (presNum < 1) {
 					presNum = 45;
 					req.setAttribute("pres", presMap.get(presNum));
-					req.getRequestDispatcher("/Presidents.jsp").forward(req, resp);
+					req.getRequestDispatcher("/TestPresidents2.jsp").forward(req, resp);
 				}
 				req.setAttribute("pres", presMap.get(presNum));
-				req.getRequestDispatcher("/Presidents.jsp").forward(req, resp);
+				req.getRequestDispatcher("/TestPresidents2.jsp").forward(req, resp);
 			}
 		}
 	}
